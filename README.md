@@ -38,8 +38,8 @@ The system employs distinct **agentic flows**, where specialized AI agents, guid
 
 *   **B. Recommendation Agent Flow (`POST /api/recommendation`):**
     1.  **Input:** Current `userpersona.json` (skills, location, needs).
-    2.  **Location Processing (Geopy):** (Optional) Lat/Long -> City/State.
-    3.  **Recommendation Agent (GPT-4o-mini with Web Search):** This dedicated agent **takes action** by performing a live web search based on the user's profile and the implicit or explicit need for information. *Its prompt engineering focuses on effective search strategies, synthesizing relevant information, and formatting actionable results.* This flow operates with a higher degree of agency in information retrieval.
+    2.  **Location Processing (Geopy):** Lat/Long -> City/State.
+    3.  **Recommendation Agent (GPT-4.1-mini):** This dedicated agent **takes action** by performing a live web search based on the user's profile and the implicit or explicit need for information. *Its prompt engineering focuses on effective search strategies, synthesizing relevant information, and formatting actionable results.* This flow operates with a higher degree of agency in information retrieval.
 
 ## 4. API Endpoints Summary
 
