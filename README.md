@@ -1,8 +1,3 @@
-# Maya Chatbot Backend: Technical One-Pager
-
-**Version:** 1.0
-**Date:** October 26, 2023
-
 ## 1. Overview
 
 The Maya Chatbot Backend is a Python FastAPI application providing robust services for a multilingual, therapeutic AI chatbot. It features a multi-agent architecture, integrating OpenAI (GPT-4.1, Whisper) and ElevenLabs APIs, with Rhubarb Lip Sync for avatar animation. The system prioritizes modularity, asynchronous processing, and carefully engineered AI agent interactions.
