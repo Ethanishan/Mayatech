@@ -12,7 +12,7 @@ The Maya Chatbot Backend is a Python FastAPI application providing robust servic
     *   **ElevenLabs API:** Text-to-Speech (TTS) with language-specific voices.
 *   **Lip Sync:** Rhubarb Lip Sync (subprocess) for viseme generation from TTS audio.
 *   **Data Management:**
-    *   **Active Session:** `userpersona.json` (dynamically updated JSON object).
+    *   **Active Session:** `userpersona` (dynamically updated JSON object).
     *   **Archival:** User persona data from completed sessions is archived to a **database**.
     *   **Context:** In-memory lists for short-term conversation history.
 *   **Configuration:** `.env` for API keys; `LANGUAGE_MAPPING` for language/voice settings.
@@ -27,12 +27,12 @@ The system employs distinct **agentic flows**, where specialized AI agents, guid
     2.  **STT Agent (Whisper):** Audio -> Transcribed Text.
     3.  **Parallel Processing:**
         *   **Conversational Agent (GPT-4.1 "Maya Persona"):** Manages the dialogue flow. Transcribed Text + Chat History -> Bot Response (text, expression, animation cues). *Prompt engineering defines persona, empathetic engagement, conversational goals, and style guardrails.*
-        *   **Persona Update Agent (GPT-4.1 "Profile Manager"):** Transcribed Text + Current Persona -> Updated `userpersona.json`. *Prompt engineering ensures structured, additive updates in English and protects system fields.*
+        *   **Persona Update Agent (GPT-4.1 "Profile Manager"):** Transcribed Text + Current Persona -> Updated `userpersona`. *Prompt engineering ensures structured, additive updates in English and protects system fields.*
     4.  **TTS Agent (ElevenLabs) & Lip Sync Processor (Rhubarb):** Bot Text -> Audio (WAV) -> Lip Sync JSON.
     5.  **Output:** Structured JSON (bot messages, base64 audio, lip-sync data) for frontend rendering.
 
 *   **B. Recommendation Agent Flow (`POST /api/recommendation`):**
-    1.  **Input:** Current `userpersona.json` (skills, location, needs).
+    1.  **Input:** Current `userpersona` (skills, location, needs).
     2.  **Location Processing (Geopy):** Lat/Long -> City/State.
     3.  **Recommendation Agent (GPT-4.1-mini):** This dedicated agent **takes action** by performing a live web search based on the user's profile and the implicit or explicit need for information. *Its prompt engineering focuses on effective search strategies, synthesizing relevant information, and formatting actionable results.* This flow operates with a higher degree of agency in information retrieval.
 
